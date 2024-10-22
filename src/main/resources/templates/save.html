@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 글 작성</title>
+</head>
+<body>
+    <form action="/save" method="post">
+        제    목: <input type="text" name="title" /><br />
+        작 성 자: <input type="text" name="writer" /><br />
+        비밀번호: <input type="text" name="pass" /><br />
+        내    용: <textarea cols="30" rows="5" name="contents"></textarea><br />
+        <input type="submit" value="작성하기" />
+    </form>
+</body>
+</html>
