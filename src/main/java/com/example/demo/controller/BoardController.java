@@ -40,7 +40,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/{id}")
-	public String findByAll(@PathVariable("id") Long id, Model model) {
+	public String findById(@PathVariable("id") Long id, Model model) {
 		// 상세 내용 가져옴
 		BoardDTO boardDTO = boardService.findById(id);
 		model.addAttribute("board", boardDTO);
@@ -48,6 +48,24 @@ public class BoardController {
 		return "detail";
 	}
 	
-	// @Get
+	@GetMapping("/update/{id}")
+	public String update(@PathVariable("id") Long id, Model model) {
+		BoardDTO boardDTO = boardService.findById(id);
+		model.addAttribute("board", boardDTO);
+		return "update";
+	}
 	
+	@PostMapping("/update/{id}")
+	public String update(BoardDTO boardDTO, Model model) {
+		boardService.update(boardDTO);
+		BoardDTO dto = boardService.findById(boardDTO.getId());
+		model.addAttribute("board", dto);
+		return "detail";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Long id) {
+		boardService.delete(id);
+		return "redirect:/list";
+	}
 }

@@ -5,4 +5,4 @@
     <typeAliases>
         <typeAlias type="com.example.demo.dto.BoardDTO" alias="board"></typeAlias>
     </typeAliases>
-<configuration>
+</configuration>
